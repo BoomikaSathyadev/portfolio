@@ -437,10 +437,16 @@ html.theme-light .site-header{
 
 /* Projects */
 .projects-grid{
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 16px;
     margin-top: 28px;
+}
+
+.projects-grid .project-card{
+    flex: 0 0 calc((100% - 32px) / 3);
+    max-width: calc((100% - 32px) / 3);
 }
 
 .project-card{
@@ -668,11 +674,11 @@ input:focus, textarea:focus{
 
 /* Responsive */
 @media (max-width: 980px){
-    .projects-grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .projects-grid .project-card{ flex: 0 0 calc((100% - 16px) / 2); max-width: calc((100% - 16px) / 2); }
 }
 
 @media (max-width: 680px){
-    .projects-grid{ grid-template-columns: 1fr; }
+    .projects-grid .project-card{ flex: 0 0 100%; max-width: 100%; }
     .skills-grid{ grid-template-columns: 1fr; }
     .other-grid{ grid-template-columns: 1fr; }
     .form-grid{ grid-template-columns: 1fr; }
